@@ -15,15 +15,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.Promise = global.Promise;
-
-mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://jdstroup10:hbif9227@ds223756.mlab.com:23756/heroku_n9ct6jf5",
-  {
-    useMongoClient: true
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budgettracker", { useNewUrlParser: true });
 
 // routes
 app.use(require("./routes/api.js"));
